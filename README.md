@@ -1,35 +1,4 @@
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-## Template Instructions
-
-Welcome,
-
-This is the Code Institute student template for the Cherry Leaves project option in Predictive Analytics. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
-
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
-
-## How to use this repo
-
-1. Use this template to create your GitHub project repo
-
-1. Log into your cloud IDE with your GitHub account.
-
-1. On your Dashboard, click on the New Workspace button
-
-1. Paste in the URL you copied from GitHub earlier
-
-1. Click Create
-
-1. Wait for the workspace to open. This can take a few minutes.
-
-1. Open a new terminal and `pip3 install -r requirements.txt`
-
-1. Open the jupyter_notebooks directory, and click on the notebook you want to open.
-
-1. Click the kernel button and choose Python Environments.
-
-Note that the kernel says Python 3.8.18 as it inherits from the workspace, so it will be Python-3.8.18 as installed by our template. To confirm this, you can use `! python --version` in a notebook code cell.
-
 ## Cloud IDE Reminders
 
 To log into the Heroku toolbelt CLI:
@@ -44,34 +13,72 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 
 ## Dataset Content
 
-- The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace.
-- The dataset contains +4 thousand images taken from the client's crop fields. The images show healthy cherry leaves and cherry leaves that have powdery mildew, a fungal disease that affects many plant species. The cherry plantation crop is one of the finest products in their portfolio, and the company is concerned about supplying the market with a compromised quality product.
+- **Source**: The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). This dataset provides an opportunity to create a predictive analytics solution in a real-world context, with a fictitious storyline for application in the workplace.
+- **Description**: The dataset contains over 4,000 images of cherry leaves collected from Farmy & Foods’ cherry crop fields. These images are categorized into:
+  - **Healthy Cherry Leaves**: Leaves without visible signs of mildew.
+  - **Mildew-Affected Cherry Leaves**: Leaves showing signs of powdery mildew, a fungal disease that could compromise crop quality if not detected and treated early.
+
+  As the cherry crop is a premium product for Farmy & Foods, ensuring the quality of these leaves is essential. Detecting powdery mildew is currently a manual process, making it time-intensive and challenging to scale across multiple farms.
 
 ## Business Requirements
 
-The cherry plantation crop from Farmy & Foods is facing a challenge where their cherry plantations have been presenting powdery mildew. Currently, the process is manual verification if a given cherry tree contains powdery mildew. An employee spends around 30 minutes in each tree, taking a few samples of tree leaves and verifying visually if the leaf tree is healthy or has powdery mildew. If there is powdery mildew, the employee applies a specific compound to kill the fungus. The time spent applying this compound is 1 minute. The company has thousands of cherry trees located on multiple farms across the country. As a result, this manual process is not scalable due to the time spent in the manual process inspection.
+Farmy & Foods currently relies on a manual inspection process to identify powdery mildew on cherry leaves. An employee inspects each tree for mildew by visually examining leaf samples, a process that takes about 30 minutes per tree. If mildew is detected, the employee then applies an anti-fungal compound in a one-minute application process. Given that the company has thousands of trees across various farms, this method is inefficient and unsustainable.
 
-To save time in this process, the IT team suggested an ML system that detects instantly, using a leaf tree image, if it is healthy or has powdery mildew. A similar manual process is in place for other crops for detecting pests, and if this initiative is successful, there is a realistic chance to replicate this project for all other crops. The dataset is a collection of cherry leaf images provided by Farmy & Foods, taken from their crops.
+To address this, the IT team proposes a machine learning solution that can automatically detect mildew in leaf images, reducing inspection time and improving scalability. If successful, the company could extend this solution to other crops.
 
-- 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
-- 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
+The business requirements are:
+1. Conduct a study to identify and visually differentiate healthy cherry leaves from those affected by powdery mildew.
+2. Create a predictive model that can accurately classify a cherry leaf as healthy or mildew-affected.
+
 
 ## Hypothesis and how to validate?
 
-- List here your project hypothesis(es) and how you envision validating it (them).
+- **Hypothesis**: A machine learning model, particularly a Convolutional Neural Network (CNN), can accurately classify cherry leaf images as either healthy or mildew-affected, meeting a target accuracy of 97%.
+  
+- **Validation Approach**:
+  1. **Training**: Train a CNN on labeled cherry leaf images to recognize visual features indicative of mildew.
+  2. **Testing**: Evaluate model performance on a test set, ensuring that the classification accuracy meets the 97% threshold.
+  3. **Performance Analysis**: Use accuracy scores, confusion matrices, and learning curves to validate the model’s effectiveness in differentiating the two classes.
 
-## The rationale to map the business requirements to the Data Visualisations and ML tasks
+## Rationale for Mapping Business Requirements to Data Visualizations and ML Tasks
 
-- List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
+Each business requirement will be supported by specific data visualizations and ML tasks as follows:
+
+1. **Data Visualization**:
+   - Use side-by-side visual comparisons, average images, and variability images to highlight differences between healthy and mildew-affected leaves, aiding both the exploratory analysis and training data preparation.
+   
+2. **ML Task**:
+   - Develop a CNN model for binary classification to detect mildew presence. This model aligns with the business goal of predicting leaf health status, helping the client automate the inspection process.
+
+3. **Dashboard**:
+   - Implement an interactive dashboard to upload and predict leaf health status in real-time, addressing the client’s need for an easily accessible, quick inspection tool.
 
 ## ML Business Case
 
-- In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+**Objective**: Automate the detection of powdery mildew on cherry leaves to save inspection time and ensure product quality.
 
+**Model Selection**: A CNN model is chosen for its high accuracy in image classification, specifically in identifying visual patterns.
+
+**Performance Metrics**: The model will be assessed based on accuracy, aiming for 97%, with further analysis using confusion matrices and accuracy curves to confirm consistent performance.
+
+**Deployment Strategy**: The trained model will be integrated into a Streamlit dashboard, allowing end users to upload images for immediate classification results.
+ 
 ## Dashboard Design
 
-- List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items, that your dashboard library supports.
-- Finally, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later, you chose another plot type).
+The dashboard will include the following pages and components:
+
+1. **Project Summary Page**:
+   - Displays the dataset summary, business objectives, and project goals.
+   
+2. **Visual Analysis Page**:
+   - Shows visual differentiation findings, including average images and montages for healthy and mildew-affected leaves.
+   
+3. **Live Prediction Page**:
+   - Contains an upload feature allowing users to upload multiple images for real-time mildew detection.
+   - Provides prediction results, including classification probabilities.
+   
+4. **Technical Performance Page**:
+   - Shows model performance metrics, such as accuracy scores and learning curves.
 
 ## Unfixed Bugs
 
@@ -94,7 +101,13 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 ## Main Data Analysis and Machine Learning Libraries
 
-- Here, you should list the libraries used in the project and provide an example(s) of how you used these libraries.
+1. **Pandas**: Used for data handling and image metadata management.
+2. **NumPy**: Utilized for efficient handling of image arrays and transformations.
+3. **Matplotlib & Seaborn**: Used to visualize data distributions, such as healthy vs. mildew-affected leaf counts.
+4. **TensorFlow/Keras**: Provides the framework to build and train the CNN model.
+5. **Streamlit**: Supports the creation of an interactive dashboard for real-time predictions.
+
+
 
 ## Credits
 
@@ -103,15 +116,14 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 ### Content
 
-- The text for the Home page was taken from Wikipedia Article A.
-- Instructions on how to implement form validation on the Sign-Up page were taken from [Specific YouTube Tutorial](https://www.youtube.com/).
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/).
+- The project introduction and context were adapted from the Code Institute’s project template.
+- The deployment steps were referenced from [Heroku’s Python documentation](https://devcenter.heroku.com/articles/python-support).
 
 ### Media
 
-- The photos used on the home and sign-up page are from This Open-Source site.
-- The images used for the gallery page were taken from this other open-source site.
+- Cherry leaf images were sourced from the [Kaggle dataset](https://www.kaggle.com/codeinstitute/cherry-leaves) provided by Code Institute.
+- Icons and visual elements in the dashboard were sourced from [Font Awesome](https://fontawesome.com/).
 
 ## Acknowledgements (optional)
 
-- Thank the people who provided support throughout this project.
+- Thanks to Code Institute for providing the dataset and project framework, and to Kaggle for hosting the dataset. Special thanks to my mentors and peers for their guidance and support throughout the project.
