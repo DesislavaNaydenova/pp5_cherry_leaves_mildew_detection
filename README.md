@@ -102,11 +102,24 @@ The dashboard will include the following pages and components:
 ## Main Data Analysis and Machine Learning Libraries
 
 1. **Pandas**: Used for data handling and image metadata management.
-2. **NumPy**: Utilized for efficient handling of image arrays and transformations.
-3. **Matplotlib & Seaborn**: Used to visualize data distributions, such as healthy vs. mildew-affected leaf counts.
-4. **TensorFlow/Keras**: Provides the framework to build and train the CNN model.
-5. **Streamlit**: Supports the creation of an interactive dashboard for real-time predictions.
 
+2. **NumPy**: This numerical computing library facilitates working with multi-dimensional arrays and matrices, which is vital for efficient image processing, statistical computations, and data manipulation.
+
+3. **Matplotlib**: A versatile library for creating static, animated, and interactive visualizations in Python. Here, we used it primarily for visualizing image dimensions, generating plots to illustrate mean and variability of images, and for comparison images.
+
+4. **Seaborn**: Built on top of matplotlib, Seaborn provides an interface for drawing attractive statistical graphics. It enhances visualizations and supports the generation of scatter plots, histograms, and other data visualizations to understand the image dimensions and label variability.
+
+5. **TensorFlow/Keras**: Provides the framework to build and train the CNN model.
+
+   - **tensorflow.keras.preprocessing.image**: A module within TensorFlow’s Keras API that supports image processing operations, such as loading, resizing, and converting images to arrays. This is crucial for preparing our image data as arrays, which are compatible with machine learning algorithms.
+
+6. **Streamlit**: Supports the creation of an interactive dashboard for real-time predictions.
+
+7. **Joblib**: Used for saving and loading large datasets, models, and other numerical data. Here, we saved our computed image shape embeddings as a .pkl file, making it easy to reuse across different parts of the project.
+
+8. **random**: A library for generating random selections and orders, used here to help create a randomized image montage. This module provides flexibility in displaying a variety of images without manual selection.
+
+9. **itertools**: A Python standard library for efficient looping and combining items. We utilized it here to manage the indices in the montage, ensuring that images align correctly in the grid layout.
 
 
 ## Credits
