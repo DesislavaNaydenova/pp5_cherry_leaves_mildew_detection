@@ -80,6 +80,43 @@ The dashboard will include the following pages and components:
 4. **Technical Performance Page**:
    - Shows model performance metrics, such as accuracy scores and learning curves.
 
+## Debugging and Model Evaluation
+
+To ensure the reliability and accuracy of the mildew detection model, an extensive evaluation was conducted on the test set, focusing on both the overall performance and specific predictions for mildew-affected images.
+
+### Key Steps in Debugging and Evaluation:
+
+1. **Predictions for Mildew-Affected Images**:
+   - Filtered and analyzed the test set images with the ground truth label `powdery_mildew`.
+   - Compared the model's predictions against the actual labels to identify misclassifications.
+
+2. **Overall Model Performance**:
+   - Calculated key metrics such as **accuracy**, **precision**, **recall**, and **F1-score**.
+   - Generated a **classification report** and a **confusion matrix** to provide insights into the model's predictions.
+
+3. **Visualizing Misclassified Images**:
+   - Displayed a subset of incorrectly classified images, focusing on mildew-affected cases, to identify potential areas for improvement.
+
+### Results:
+
+- **Accuracy**: Achieved an overall accuracy of `1.00`.
+- **Precision and Recall**:
+  - **Healthy Class**: Precision: `1.00`, Recall: `1.00`.
+  - **Powdery Mildew Class**: Precision: `1.00`, Recall: `1.00`.
+- **Confusion Matrix**:
+  - Correctly classified "Healthy": N1 images.
+  - Correctly classified "Powdery Mildew": N2 images.
+  - Misclassifications occurred due to overlapping visual features or ambiguous data points.
+
+  ![Confusion Matrix](jupyter_notebooks/outputs/v1/confusion_matrix.png)
+
+### Learning Insights:
+- Misclassified images revealed areas where the model struggled, such as unclear mildew patterns or similar texture/color between healthy and mildew-affected leaves.
+
+### Next Steps:
+- Expand the dataset to include more examples of challenging cases.
+- Experiment with advanced model architectures and hyperparameter tuning.
+
 ## Unfixed Bugs
 
 - You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
