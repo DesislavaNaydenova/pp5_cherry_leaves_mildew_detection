@@ -63,22 +63,98 @@ Each business requirement will be supported by specific data visualizations and 
 
 **Deployment Strategy**: The trained model will be integrated into a Streamlit dashboard, allowing end users to upload images for immediate classification results.
  
-## Dashboard Design
+## Dashboard - Design Document
 
 The dashboard will include the following pages and components:
 
-1. **Project Summary Page**:
-   - Displays the dataset summary, business objectives, and project goals.
+### Page 1: Quick Project Summary
+
+**Quick Project Summary**:
+   - This project aims to address the detection of powdery mildew, a common fungal disease in cherry leaves. The tool helps farmers and agricultural professionals quickly and accurately determine the health of cherry leaves, saving time and resources.
+
+**General Information**:
+   - Powdery mildew is caused by fungi that thrive in warm and humid conditions.
+   - It negatively impacts cherry production, leading to reduced fruit quality and yield.
+   - Early detection is crucial to prevent the spread and reduce economic losses.
+
+**Project Dataset**: 
+   - The dataset contains over 4,000 images of cherry leaves, categorized into Healthy and Mildew-Affected.
+   - The images were sourced from a publicly available dataset Cherry Leaves Dataset.
+
+**Business Requirements**
+   1. Provide a visual differentiation between healthy and mildew-affected leaves.
+   2. Allow real-time predictions for new leaf images to determine their health status.
+
+### Page 2: Visual Analysis of Cherry Leaves
+
+This page addresses Business Requirement 1 by providing a visual analysis of the dataset.
+
+**Components**:
+
+1. **Checkbox: Difference Between Average and Variability Images**
+   - Displays the average image of all healthy leaves vs. all mildew-affected leaves, showing key differences.
+
+2. **Checkbox: Differences Between Average Healthy and Average Mildew-Affected Leaves**
+   - Highlights the visual distinction between the two categories.
+
+3. **Checkbox: Image Montage**
+   - A grid montage displaying examples of healthy and mildew-affected leaves.
    
-2. **Visual Analysis Page**:
-   - Shows visual differentiation findings, including average images and montages for healthy and mildew-affected leaves.
-   
-3. **Live Prediction Page**:
-   - Contains an upload feature allowing users to upload multiple images for real-time mildew detection.
-   - Provides prediction results, including classification probabilities.
-   
-4. **Technical Performance Page**:
-   - Shows model performance metrics, such as accuracy scores and learning curves.
+### Page 3: Mildew Detection:
+
+This page addresses Business Requirement 2 by enabling live predictions for new images uploaded by the user.
+
+**Components**:
+
+1. **File Uploader Widget**
+   - Allows users to upload one or more images of cherry leaves for mildew detection.
+
+2. **Prediction Display**
+   - Shows each uploaded image with a prediction statement, indicating whether it is Healthy or Mildew-Affected, along with the associated probability.
+
+3. **Results Table**
+   - Displays a table listing:
+      - Image name
+      - Prediction result (Healthy/Mildew-Affected)
+      - Confidence score
+
+4. **Download Button**
+   - Allows the user to download the results table in CSV format.
+
+### Page 4: Project Hypothesis and Validation
+
+This page summarizes the hypotheses made during the project, conclusions drawn, and the methods used for validation.
+
+**Blocks**:
+
+1. **Hypothesis 1: Healthy and mildew-affected leaves have distinct visual features.**
+   - Validated through average image comparisons and montages.
+
+2. **Hypothesis 2: A machine learning model can accurately classify leaves as Healthy or Mildew-Affected.**
+   - Validated using a Convolutional Neural Network (CNN) that achieved high accuracy on the test dataset.
+
+### Page 5: ML Prediction Metrics
+
+This page provides detailed insights into the model's performance.
+
+**Components**:
+
+1. **Label Frequencies**
+   - A bar chart showing the distribution of Healthy and Mildew-Affected labels across the train, validation, and test sets.
+
+2. **Model History: Accuracy and Losses**
+   - Line plots visualizing the training and validation accuracy/loss over epochs.
+
+3. **Model Evaluation Results**
+   - A summary of metrics including:
+      - Accuracy: Overall model accuracy on the test set.
+      - Precision, Recall, and F1-Score: Performance metrics for each class.
+      - Confusion Matrix: Visualized as a heatmap to show true positives, false positives, true negatives, and false negatives.
+
+### Notes
+
+- All pages are interactive, allowing users to explore different aspects of the project in depth.
+- The dashboard is developed using Streamlit, ensuring a user-friendly interface and seamless navigation.
 
 ## Debugging and Model Evaluation
 
@@ -119,7 +195,17 @@ To ensure the reliability and accuracy of the mildew detection model, an extensi
 
 ## Unfixed Bugs
 
-- You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+1. **Misclassifications**:
+   - Certain mildew-affected leaves were misclassified as healthy during testing. This may be due to unclear mildew patterns or overlapping visual features.
+   - Further refinement of the dataset and preprocessing steps could mitigate these issues.
+
+2. **Edge Case Limitations**:
+   - The model occasionally struggles with edge cases, such as partially visible mildew or poorly lit images. 
+
+3. **Dashboard Performance**:
+   - While functional, the Streamlit dashboard may experience delays or errors with large image files. Additional optimization is planned for future versions.
+
+These bugs were not addressed due to time constraints but will be considered in future iterations of the project.
 
 ## Deployment
 
