@@ -18,5 +18,6 @@ class MultiPage:
 
     def run(self):
         """Run the app by displaying the selected page."""
+        st.title(self.app_name)
         page = st.sidebar.radio('Navigation', self.pages, format_func=lambda page: page['title'])
         page['function']()
