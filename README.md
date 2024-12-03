@@ -193,6 +193,13 @@ To ensure the reliability and accuracy of the mildew detection model, an extensi
 - Expand the dataset to include more examples of challenging cases.
 - Experiment with advanced model architectures and hyperparameter tuning.
 
+## Fixed Bugs
+
+1. **ValueError**: Input 0 of layer sequential is incompatible with the layer: expected axis -1 of input shape to have value 3 but received input with shape (None, 256, 256, 4). The error occurs because the input image has an unexpected number of channels (4 instead of the expected 3), which indicates the image might include an alpha channel.
+   - Update Image Preprocessing: Modify the resize_input_image function to ensure the input image has exactly 3 channels (RGB). If the image has 4 channels (RGBA), remove the alpha channel.
+   - Validate Input Image: Before passing the image to the model, confirm its shape is (256, 256, 3).
+   - Test Image Upload: Ensure the Mildew_Detection_body function only accepts valid images.
+
 ## Unfixed Bugs
 
 1. **Misclassifications**:
