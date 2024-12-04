@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 def Quick_Project_Summary_body():
 
-    st.write("### Quick Project Summary")
+    st.write("## Quick Project Summary")
 
     st.info(
         f"**General Information**\n"

@@ -9,7 +9,8 @@ from matplotlib.image import imread
 def Visual_Analysis_of_Cherry_Leaves_body():
     """Displays the visual analysis of cherry leaves."""
 
-    st.write("### Visual Analysis of Cherry Leaves")
+    st.write("## Visual Analysis of Cherry Leaves")
+
     st.info(
         f"* The client is interested in studying the visual differences between "
         f"healthy and powdery mildew-infected cherry leaves."

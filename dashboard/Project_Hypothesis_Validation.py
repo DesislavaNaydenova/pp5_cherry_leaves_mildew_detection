@@ -2,7 +2,8 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 def Project_Hypothesis_Validation_body():
-    st.write("### Project Hypothesis and Validation")
+
+    st.write("## Project Hypothesis and Validation")
 
     st.success(
         f"* We hypothesize that cherry leaves affected by mildew will show clear signs, "

@@ -10,7 +10,8 @@ from src.machine_learning.utils import resize_input_image, plot_predictions_prob
 
 
 def Mildew_Detection_body():
-    st.title("Cherry Leaf Mildew Detection")
+
+    st.write("## Cherry Leaf Mildew Detection")
 
     st.info(
         f"* This tool allows you to detect if a cherry leaf has mildew. "
