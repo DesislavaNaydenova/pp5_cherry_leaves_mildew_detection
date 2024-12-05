@@ -1,2 +1,5 @@
 # Ignore datasets
 inputs/
+
+# Ignore Jupyter notebooks
+jupyter_notebooks/
