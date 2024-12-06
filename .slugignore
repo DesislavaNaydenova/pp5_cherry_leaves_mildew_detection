@@ -1,5 +1,5 @@
 # Ignore datasets
-inputs/
+# inputs/
 
 # Ignore Jupyter notebooks
 jupyter_notebooks/*.ipynb
