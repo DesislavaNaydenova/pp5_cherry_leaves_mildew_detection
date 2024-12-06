@@ -35,7 +35,7 @@ def Visual_Analysis_of_Cherry_Leaves_body():
 
     # Option: Difference between average healthy and mildew leaves
     if st.checkbox("Difference Between Average Healthy and Powdery Mildew Images"):
-        diff_between_avgs = plt.imread(f"jupyter_notebooks/outputs/{version}/avg_diff.png")
+        diff_between_avgs = plt.imread(f"jupyter_notebooks/outputs/{version}/avg_diff_healthy_powdery_mildew.png")
 
         st.warning(
             f"* The difference between the average images of healthy and mildew-infected leaves "
