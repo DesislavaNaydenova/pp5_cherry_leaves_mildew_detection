@@ -47,7 +47,7 @@ def Visual_Analysis_of_Cherry_Leaves_body():
     # Option: Image Montage
     if st.checkbox("Image Montage"):
         st.write("* To refresh the montage, click on the 'Create Montage' button")
-        my_data_dir = "inputs/cherry_leaves_dataset/cherry-leaves/train"
+        my_data_dir = "inputs/cherry_leaves_dataset/cherry-leaves/test"
         labels = os.listdir(my_data_dir)
         label_to_display = st.selectbox(label="Select Label", options=labels, index=0)
         

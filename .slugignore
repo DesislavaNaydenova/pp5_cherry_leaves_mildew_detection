@@ -1,5 +1,7 @@
 # Ignore datasets
 # inputs/
+inputs/cherry_leaves_dataset/cherry-leaves/train
+inputs/cherry_leaves_dataset/cherry-leaves/validation
 
 # Ignore Jupyter notebooks
 jupyter_notebooks/*.ipynb
