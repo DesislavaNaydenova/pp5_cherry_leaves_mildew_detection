@@ -2,4 +2,4 @@
 inputs/
 
 # Ignore Jupyter notebooks
-jupyter_notebooks/model
+jupyter_notebooks/*.ipynb
