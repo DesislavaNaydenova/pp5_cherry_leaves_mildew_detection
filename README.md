@@ -17,7 +17,7 @@ This solution can potentially be expanded to detect diseases in other agricultur
 2. [Business Requirements](#business-requirements)
 3. [Project Management](#project-management)
 4. [Hypothesis and Validation](#hypothesis-and-validation)
-5. [Dashboard - Design Document](#dashboard-design-document)
+5. [Dashboard Design Document](#dashboard-design-document)
 6. [Debugging and Model Evaluation](#debugging-and-model-evaluation)
 7. [Testing](#testing)
 8. [Deployment](#deployment)
@@ -128,7 +128,7 @@ Each business requirement will be supported by specific data visualizations and 
 
 **Deployment Strategy**: The trained model will be integrated into a Streamlit dashboard, allowing end users to upload images for immediate classification results.
  
-## Dashboard - Design Document
+## Dashboard Design Document
 
 The dashboard will include the following pages and components:
 
@@ -405,7 +405,7 @@ While manual testing covers the current functionality, automated tests will be i
      - Prediction Probability
 
      ![Detection results](assets/images/detection_results_1.png)
-     
+
      ![Detection results](assets/images/detection_results_2.png)
 
 #### Notes
@@ -474,7 +474,6 @@ Please ensure your contributions align with the project goals and business requi
 ### Media
 
 - Cherry leaf images were sourced from the [Kaggle dataset](https://www.kaggle.com/codeinstitute/cherry-leaves) provided by Code Institute.
-- Icons and visual elements in the dashboard were sourced from [Font Awesome](https://fontawesome.com/).
 
 ### Tools & Project Management
 - The Kanban board was created and maintained using [GitHub Projects](https://github.com/features/project-management/).
@@ -485,5 +484,5 @@ Please ensure your contributions align with the project goals and business requi
 ## Acknowledgements
 
 - Special thanks to Code Institute for providing the dataset and project framework.
-- Gratitude to my mentors and peers for their invaluable support and guidance throughout the project.
+- Gratitude to my mentor for his invaluable support and guidance throughout the project.
 - Appreciation to Kaggle for hosting the Cherry Leaves Dataset.
