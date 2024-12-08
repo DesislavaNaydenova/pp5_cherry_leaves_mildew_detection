@@ -12,6 +12,7 @@ This solution can potentially be expanded to detect diseases in other agricultur
 
 ## Table of Contents 📚
 
+1. [CRISP-DM](#crisp-dm)
 1. [Dataset Content](#dataset-content)
 2. [Business Requirements](#business-requirements)
 3. [Project Management](#project-management)
@@ -24,7 +25,7 @@ This solution can potentially be expanded to detect diseases in other agricultur
 10. [Credits](#credits)
 11. [Acknowledgements](#acknowledgements)
 
-## CRISP-DM for the Cherry Leaves Mildew Detection Project 📊
+## CRISP-DM for the Cherry Leaves Mildew Detection Project
 
 The **CRISP-DM (Cross Industry Standard Process for Data Mining)** is a structured methodology for data science projects. Here’s a brief outline of the CRISP-DM phases and their relation to sections in this project:
 
@@ -64,7 +65,7 @@ The **CRISP-DM (Cross Industry Standard Process for Data Mining)** is a structur
 - Deploying the model in a **Streamlit Dashboard**, allowing real-time detection of leaf health status.  
 - See: [## Deployment](#deployment).
 
-## Dataset Content 📁
+## Dataset Content
 
 - **Source**: The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves). This dataset provides an opportunity to create a predictive analytics solution in a real-world context, with a fictitious storyline for application in the workplace.
 - **Description**: The dataset contains over 4,000 images of cherry leaves collected from Farmy & Foods’ cherry crop fields. These images are categorized into:
@@ -73,7 +74,7 @@ The **CRISP-DM (Cross Industry Standard Process for Data Mining)** is a structur
 
   As the cherry crop is a premium product for Farmy & Foods, ensuring the quality of these leaves is essential. Detecting powdery mildew is currently a manual process, making it time-intensive and challenging to scale across multiple farms.
 
-## Business Requirements 📊
+## Business Requirements
 
 Farmy & Foods currently relies on a manual inspection process to identify powdery mildew on cherry leaves. An employee inspects each tree for mildew by visually examining leaf samples, a process that takes about 30 minutes per tree. If mildew is detected, the employee then applies an anti-fungal compound in a one-minute application process. Given that the company has thousands of trees across various farms, this method is inefficient and unsustainable.
 
@@ -86,15 +87,16 @@ The business requirements are:
 ## Project Management
 
 To streamline development, track tasks, and plan future improvements, this project uses a Kanban board.  
-You can view the board here: [Kanban Board](your-kanban-board-link).
+You can view the board here: [Kanban Board](https://github.com/users/DesislavaNaydenova/projects/5/views/1).
 
 The board includes columns for:
-- To Do: Tasks planned for the project.
+- Backlog: Tasks planned for the project.
+- Ready: Tasks ready to be picked up
 - In Progress: Tasks currently being worked on.
+- In review: Tasks in review.
 - Done: Completed tasks.
-- Future Improvements: Enhancements planned for upcoming versions.
 
-## Hypothesis and how to validate? 🔍
+## Hypothesis and Validation
 
 - **Hypothesis**: A machine learning model, particularly a Convolutional Neural Network (CNN), can accurately classify cherry leaf images as either healthy or mildew-affected, meeting a target accuracy of 97%.
   
@@ -103,7 +105,7 @@ The board includes columns for:
   2. **Testing**: Evaluate model performance on a test set, ensuring that the classification accuracy meets the 97% threshold.
   3. **Performance Analysis**: Use accuracy scores, confusion matrices, and learning curves to validate the model’s effectiveness in differentiating the two classes.
 
-### Rationale for Mapping Business Requirements to Data Visualizations and ML Tasks 📉
+### Rationale for Mapping Business Requirements to Data Visualizations and ML Tasks
 
 Each business requirement will be supported by specific data visualizations and ML tasks as follows:
 
@@ -116,7 +118,7 @@ Each business requirement will be supported by specific data visualizations and 
 3. **Dashboard**:
    - Implement an interactive dashboard to upload and predict leaf health status in real-time, addressing the client’s need for an easily accessible, quick inspection tool.
 
-### ML Business Case ⚡
+### ML Business Case
 
 **Objective**: Automate the detection of powdery mildew on cherry leaves to save inspection time and ensure product quality.
 
@@ -126,7 +128,7 @@ Each business requirement will be supported by specific data visualizations and 
 
 **Deployment Strategy**: The trained model will be integrated into a Streamlit dashboard, allowing end users to upload images for immediate classification results.
  
-## Dashboard - Design Document 🖼️
+## Dashboard - Design Document
 
 The dashboard will include the following pages and components:
 
@@ -170,19 +172,16 @@ This page addresses Business Requirement 2 by enabling live predictions for new 
 **Components**:
 
 1. **File Uploader Widget**
-   - Allows users to upload one or more images of cherry leaves for mildew detection.
+   - Allows users to upload one image of cherry leaves for mildew detection.
 
 2. **Prediction Display**
-   - Shows each uploaded image with a prediction statement, indicating whether it is Healthy or Mildew-Affected, along with the associated probability.
+   - Shows the uploaded image with a prediction statement, indicating whether it is Healthy or Mildew-Affected, along with the associated probability.
 
 3. **Results Table**
    - Displays a table listing:
       - Image name
       - Prediction result (Healthy/Mildew-Affected)
       - Confidence score
-
-4. **Download Button**
-   - Allows the user to download the results table in CSV format.
 
 ### Page 4: Project Hypothesis and Validation
 
@@ -219,7 +218,7 @@ This page provides detailed insights into the model's performance.
 - All pages are interactive, allowing users to explore different aspects of the project in depth.
 - The dashboard is developed using Streamlit, ensuring a user-friendly interface and seamless navigation.
 
-## Debugging and Model Evaluation ⚠️
+## Debugging and Model Evaluation
 
 To ensure the reliability and accuracy of the mildew detection model, an extensive evaluation was conducted on the test set, focusing on both the overall performance and specific predictions for mildew-affected images.
 
@@ -265,7 +264,7 @@ To ensure the reliability and accuracy of the mildew detection model, an extensi
    - Validate Input Image: Before passing the image to the model, confirm its shape is (256, 256, 3).
    - Test Image Upload: Ensure the Mildew_Detection_body function only accepts valid images.
 
-### Unfixed Bugs 🐞
+### Unfixed Bugs
 
 1. **Misclassifications**:
    - Certain mildew-affected leaves were misclassified as healthy during testing. This may be due to unclear mildew patterns or overlapping visual features.
@@ -277,9 +276,15 @@ To ensure the reliability and accuracy of the mildew detection model, an extensi
 3. **Dashboard Performance**:
    - While functional, the Streamlit dashboard may experience delays or errors with large image files. Additional optimization is planned for future versions.
 
+4. **Non-Leaf Images**  
+   - The current program does not validate whether the uploaded image is of a cherry leaf. As a result, it performs predictions on all uploaded images, regardless of their content, leading to misleading results if non-leaf images are used.
+   - **Next Steps**
+      - Implement a leaf detector model or use pre-trained models to first confirm if the image contains a leaf.
+      - Reject or flag non-leaf images with a message to the user.
+
 These bugs were not addressed due to time constraints but will be considered in future iterations of the project.
 
-## Testing ✅
+## Testing
 
 ### Manual Testing
 
@@ -287,48 +292,85 @@ This section outlines the manual testing approach for the deployed dashboard to 
 
 ---
 
-### ✅ Dashboard Access & Navigation
+### Dashboard Access & Navigation
 - **Objective:** Ensure the dashboard loads correctly and all pages are accessible.
 - **Steps to Test:**
-  1. Open the provided dashboard link.
+  1. Open the provided dashboard [link](https://cherry-leaves-mildew-detect-c70ea792e556.herokuapp.com/).
+
+   ![Quick Summary](assets/images/quick_summary.png)
+
   2. Navigate to different pages (Summary, Visual Analysis, Detection, Prediction Metrics).
+
+   ![Navigation](assets/images/navigation.png)
+
   3. Confirm that transitions between pages are smooth and intuitive.
 
 ---
 
-### ✅ File Upload Widget
+### File Upload Widget
 - **Objective:** Test the image upload functionality for detecting powdery mildew.
+
+   ![Detection Page](assets/images/detection.png)
+
 - **Test Cases:**
   - Upload single healthy cherry leaf images.
+
+  ![Upload Healthy](assets/images/upload_h.png)
+
   - Upload single mildew-affected cherry leaf images.
-  - Upload multiple images simultaneously (batch test).
+
+  ![Upload Mildew Affected](assets/images/upload_m.png)
+
   - Check the prediction output for accuracy and confidence percentages.
+
+  ![Result Healthy](assets/images/result_h.png)
+
+  ![Result Mildew Affected](assets/images/result_m.png)
 
 ---
 
-### ✅ Prediction Display
+### Prediction Display
 - **Objective:** Verify that predictions display the correct results.
 - **Test Cases:**
   - Ensure each uploaded image shows a prediction (Healthy/Mildew).
   - Check the confidence score and prediction correctness.
 
+   ![Result Healthy](assets/images/result_h.png)
+
+   ![Result Mildew Affected](assets/images/result_m.png)
+
 ---
 
-### ✅ Visual Analysis Components
+### Visual Analysis Components
 - **Objective:** Check the visual comparison components.
+
+   ![Visual Analysis](assets/images/visual_analysis.png)
+
 - **Test Scenarios:**
   - Compare **Average & Variability Images** for Healthy vs. Mildew leaves.
+
+   ![Average & Variability Images](assets/images/dif_a_v.png)
+
   - Visualize the **Differences in Healthy & Mildew Average Leaves**.
+
+   ![Differences in Healthy & Mildew Average Leaves](assets/images/dif_h_m.png)
+
   - Examine the **Image Montage Grid** for examples of healthy and mildew-affected leaves.
+
+  ![Image Montage Healthy](assets/images/montage_h.png)
+
+  ![Image Montage  Mildew](assets/images/montage_m.png)
 
 ---
 
-### ✅ Edge Case Testing
+### Edge Case Testing
 - **Objective:** Test robustness for difficult real-world scenarios.
 - **Edge Cases to Check:**
   - Upload images with partial leaves.
   - Test with poor lighting or low-resolution images.
   - Check overlapping visual patterns that are hard to distinguish.
+
+  ![Test](assets/images/test_part.png)
 
 ---
 
@@ -339,11 +381,44 @@ While manual testing covers the current functionality, automated tests will be i
 - Data integrity across uploaded and exported files
 - Compatibility across different browsers and screen resolutions
 
-## Deployment 🚀
+### App Usage Guide
+
+#### Step-by-Step Instructions
+
+1. **Access the App**
+   - Open the deployed app using this [link](https://cherry-leaves-mildew-detect-c70ea792e556.herokuapp.com/).
+
+2. **Upload Leaf Image**
+   - Navigate to the "Mildew Detection" page.
+   - Use the file uploader widget to upload image of cherry leaves.
+
+3. **Get Predictions**
+   - Once image is uploaded, the app will automatically analyze it.
+   - For the image, the app will display:
+     - **Prediction**: Healthy or Mildew-Affected.
+     - **Confidence Score**: The model’s confidence in its prediction.
+
+4. **Review Results**
+   - A results table below the image will display:
+     - Image dimensions
+     - Prediction Result
+     - Prediction Probability
+
+     ![Detection results](assets/images/detection_results_1.png)
+     
+     ![Detection results](assets/images/detection_results_2.png)
+
+#### Notes
+- Ensure uploaded images are clear and adequately lit for best results.
+- Supported formats include `.jpg`, `.jpeg`, and `.png`.
+- If delays or errors occur, ensure that your images are within size limits and re-upload them.
+
+
+## Deployment
 
 ### Heroku
 
-- The App live link is: `https://YOUR_APP_NAME.herokuapp.com/`
+- The App live link is: `https://cherry-leaves-mildew-detect-c70ea792e556.herokuapp.com/`
 - Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 - The project was deployed to Heroku using the following steps.
 
@@ -354,7 +429,7 @@ While manual testing covers the current functionality, automated tests will be i
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
 6. If the slug size is too large, then add large files not required for the app to the .slugignore file.
 
-## Main Data Analysis and Machine Learning Libraries 📚
+## Main Data Analysis and Machine Learning Libraries
 
 1. **Pandas**: Used for data handling and image metadata management.
 
@@ -377,7 +452,7 @@ While manual testing covers the current functionality, automated tests will be i
 9. **itertools**: A Python standard library for efficient looping and combining items. We utilized it here to manage the indices in the montage, ensuring that images align correctly in the grid layout.
 
 
-## Credits 📝
+## Credits
 
 ### Content
 
@@ -391,7 +466,7 @@ While manual testing covers the current functionality, automated tests will be i
 
 Contributions are welcome! To get started:
 1. Check the open issues for tasks or report a bug.
-2. View the [Kanban Board](your-kanban-board-link) for ongoing and planned tasks.
+2. View the [Kanban Board](https://github.com/users/DesislavaNaydenova/projects/5/views/1) for ongoing and planned tasks.
 3. Fork the repository and create a pull request.
 
 Please ensure your contributions align with the project goals and business requirements.
@@ -407,7 +482,7 @@ Please ensure your contributions align with the project goals and business requi
 - Model building and data processing utilized libraries such as TensorFlow/Keras, Pandas, NumPy, Matplotlib, and Seaborn.
 - The project was deployed using [Heroku](https://www.heroku.com/), and the runtime environment was configured with `.slugignore` to manage deployment size.
 
-## Acknowledgements 🙏
+## Acknowledgements
 
 - Special thanks to Code Institute for providing the dataset and project framework.
 - Gratitude to my mentors and peers for their invaluable support and guidance throughout the project.
